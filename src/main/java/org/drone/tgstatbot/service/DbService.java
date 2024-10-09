@@ -20,6 +20,7 @@ public class DbService {
         if (chatState == null){
             return null;
         }
+
         return MessageState.valueOf(chatState.getChatState());
     }
     public void deleteChatStateByChatId(long chatId){
