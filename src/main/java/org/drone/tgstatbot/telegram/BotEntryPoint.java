@@ -37,6 +37,7 @@ public class BotEntryPoint extends TelegramLongPollingBot {
         executorService.submit(() -> {
             if (update.hasMessage() && update.getMessage().hasText()) {
                 log.info("message from {}, {}", update.getMessage().getChatId(), update.getMessage().getFrom().getUserName());
+                sendMessage(update.getMessage().getChatId(), "Выполняю запрос...");
                 String message = answerGenerator.answer(update);
                 sendMessage(update.getMessage().getChatId(), message);
             }
